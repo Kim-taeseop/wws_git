@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-// commit test
 @Entity
 @Table(name = "members")
 @Getter
