@@ -1,7 +1,6 @@
 package com.tabby.wws.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +11,14 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "category")
+@Table(name = "admin")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class admin {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "admin_id")
+    private Long id;
 }

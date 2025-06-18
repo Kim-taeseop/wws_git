@@ -1,7 +1,7 @@
 package com.tabby.wws.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.tabby.wws.entity.base.BaseTimeEntity;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +12,26 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "category")
+@Table(name = "parts")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class parts {
+public class parts extends BaseTimeEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "parts_id")
+    private Long id;
+
+    // 파츠명
+    @Column(name = "parts_name", nullable = false, unique = true)
+    private String name;
+
+    // 설명 >> 성능
+    @Column(name = "parts_script")
+    private String partsScript;
+
+    // 사용 가능한 장비
+    @Column(name = "use_item")
+    private String useItem;
 }
