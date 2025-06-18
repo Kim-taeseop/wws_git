@@ -84,6 +84,8 @@ public class items extends BaseTimeEntity {
     @Column(name = "items_script")
     private String itemsScript;
 
-    // 엔티티 관계
+    // 엔티티 관계 파츠와 1:N
+
+    // 엔티티 관계 아이템 변경점과 1:N
 
 }

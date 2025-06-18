@@ -34,4 +34,6 @@ public class parts extends BaseTimeEntity {
     // 사용 가능한 장비
     @Column(name = "use_item")
     private String useItem;
+
+    // 엔티티 관계 아이템 변경점과 1:N
 }
