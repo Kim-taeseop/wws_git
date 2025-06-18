@@ -34,6 +34,6 @@ public class category {
     @Column(name = "category_script")
     private String categoryScript;
 
-    // 엔티티 관계
+    // 엔티티 관계 아이템과 1:N
 
 }
