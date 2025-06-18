@@ -24,15 +24,15 @@ public class category {
 
     // 카테고리 명
     @Column(name = "category_name", nullable = false, unique = true)
-    private String category_name;
+    private String name;
 
     // 사용 가능한 칸 (1~5) (1:주무기  3:보조무기  4:근접무기  5:투척무기)
     @Column(name = "use_number", nullable = false)
-    private int use_number;
+    private int useNumber;
 
     // 설명
     @Column(name = "category_script")
-    private String category_script;
+    private String categoryScript;
 
     // 엔티티 관계
 

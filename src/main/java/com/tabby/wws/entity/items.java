@@ -22,7 +22,7 @@ public class items extends BaseTimeEntity {
 
     // 아이템 명
     @Column(name = "items_name", nullable = false, unique = true)
-    private String items_name;
+    private String name;
 
     // 데미지
     @Column(name = "damage")
@@ -34,11 +34,11 @@ public class items extends BaseTimeEntity {
 
     // 발사모드
     @Column(name = "firing_mode")
-    private String firing_mode;
+    private String firingMode;
 
     // 저지력
     @Column(name = "stopping_power")
-    private int stopping_power;
+    private int stoppingPower;
 
     // 탄속
     @Column(name = "arrest")
@@ -50,7 +50,7 @@ public class items extends BaseTimeEntity {
 
     // 재장전 시간
     @Column(name = "load_time")
-    private int load_time;
+    private int loadTime;
 
     // DPS
     @Column(name = "dps")
@@ -58,30 +58,31 @@ public class items extends BaseTimeEntity {
 
     // 등장 지역
     @Column(name = "spawn_area")
-    private String spawn_area;
+    private String spawnArea;
 
     // 여기부터 파츠 가능 여부 true : 착용 가능, false : 착용 불가능
     // 총구
-    @Column(name = "parts_front")
-    private boolean parts_front;
+    @Column(name = "parts_front", nullable = false)
+    private boolean partsFront = false;
     // 손잡이
-    @Column(name = "parts_knob")
-    private boolean parts_knob;
+    @Column(name = "parts_knob", nullable = false)
+    private boolean partsKnob = false;
     // 탄창
-    @Column(name = "parts_bulletBox")
-    private boolean parts_bulletBox;
+    @Column(name = "parts_bulletBox", nullable = false)
+    private boolean partsBulletBox = false;
     // 개머리판
-    @Column(name = "parts_reverse")
-    private boolean parts_reverse;
+    @Column(name = "parts_reverse", nullable = false)
+    private boolean partsReverse = false;
     // 조준경
-    @Column(name = "parts_scope")
-    private boolean parts_scope;
+    @Column(name = "parts_scope", nullable = false)
+    private boolean partsScope = false;
     // 캔티드
-    @Column(name = "parts_canted")
-    private boolean parts_canted;
+    @Column(name = "parts_canted", nullable = false)
+    private boolean partsCanted = false;
+
     // 설명
     @Column(name = "items_script")
-    private String items_script;
+    private String itemsScript;
 
     // 엔티티 관계
 
