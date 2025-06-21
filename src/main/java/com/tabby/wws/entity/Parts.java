@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class parts extends BaseTimeEntity {
+public class Parts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +35,9 @@ public class parts extends BaseTimeEntity {
     @Column(name = "use_item")
     private String useItem;
 
-    // 엔티티 관계 아이템 변경점과 1:N
+    // 아이과와 다대일 연관관계 (양방향)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "items_id")
+    private Items items;
+
 }

@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 무기류, 투척류 등 카테고리를 분류하는 엔티티
  */
@@ -15,7 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class category {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +37,8 @@ public class category {
     @Column(name = "category_script")
     private String categoryScript;
 
-    // 엔티티 관계 아이템과 1:N
+    // 아이템과 일대다 연관관계 (양방향)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<Items> items = new ArrayList<>();
 
 }

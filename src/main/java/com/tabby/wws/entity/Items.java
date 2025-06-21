@@ -1,6 +1,5 @@
 package com.tabby.wws.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import com.tabby.wws.entity.base.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -8,12 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "items")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class items extends BaseTimeEntity {
+public class Items extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -84,8 +86,13 @@ public class items extends BaseTimeEntity {
     @Column(name = "items_script")
     private String itemsScript;
 
-    // 엔티티 관계 파츠와 1:N
+    // 카테고리와 다대일 연관관계
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-    // 엔티티 관계 아이템 변경점과 1:N
+    // 파츠와 일대다 연관관계 (양방향)
+    @OneToMany(mappedBy = "items", cascade = CascadeType.ALL)
+    private List<Parts> parts = new ArrayList<>();
 
 }
