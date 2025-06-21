@@ -15,10 +15,25 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class changes {
+public class Changes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "changes_id")
     private Long id;
+
+    @Column(name = "comment")
+    private String comment;
+
+
+    // 아이템과 다대일 연관관계 (단방향)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "items_id")
+    private Items items;
+
+    // 파츠와 다대일 연관관계 (단방향)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parts_id")
+    private Parts parts;
+
 }
