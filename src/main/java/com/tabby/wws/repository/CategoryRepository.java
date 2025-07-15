@@ -20,6 +20,11 @@ public class CategoryRepository {
         }
     }
 
+    //  카테고리 삭제
+    public void remove(Category category){
+        em.remove(category);
+    }
+
     // 한개 조회
     public Category findOne(Long id){
         return em.find(Category.class, id);
