@@ -13,7 +13,7 @@ public class ItemsRepository {
 
     private final EntityManager em;
 
-    // 아이템 등회
+    // 아이템 등록
     public void save(Items items) {
         if(items.getId() == null){
             em.persist(items);

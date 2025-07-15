@@ -13,7 +13,7 @@ public class PartsRepository {
 
     private final EntityManager em;
 
-    // 신규 파츠 생록
+    // 신규 파츠 등록
     public void save(Parts parts) {
         if(parts.getId() == null){
             em.persist(parts);
